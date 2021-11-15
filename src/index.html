@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Health Care System</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Health Care System</h1>
+      <hr />
+      <p id="accountAddress" class="text-center"></p>
+      <br/>
+      <div class="row">
+        <div class="col-lg-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Year of Birth</th>
+                <th scope="col">Gender</th>
+                <th scope="col">City</th>
+              </tr>
+            </thead>
+            <tbody id="getPatients">
+            </tbody>
+          </table>
+          <h3 class="text-center">Create Profile of a Patient</h3>
+          <hr/>
+          <div id="content">
+            <form onSubmit="App.newPatient(); return false;">
+              <div class="form-group">
+                <label for="patientName">Name</label>
+                <input type="text" class="form-control" id="patientName" placeholder="Enter Patient Name">
+              </div>
+              <div class="form-group">
+                <label for="dob">Year of Birth</label>
+                <input type="number" class="form-control" id="dob" placeholder="Enter year of birth">
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter City">
+              </div>
+              <div class="form-group">
+                <p id="newPatientMsg"></p>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <hr />
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <h3 class="text-center">Create Profile for Doctor</h3>
+          <hr/>
+          <div id="content">
+            <form onSubmit="App.castVote(); return false;">
+              <div class="form-group">
+                <label for="docName">Name</label>
+                <input type="text" class="form-control" id="docName" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label for="docDob">Year of Birth</label>
+                <input type="number" class="form-control" id="docDob" placeholder="Enter year of birth">
+              </div>
+              <div class="form-group">
+                <label for="specialization">Specialization</label>
+                <input type="text" class="form-control" id="specialization" placeholder="Enter Specialization">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <hr />
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <h3 class="text-center">Create New Health Record</h3>
+          <hr/>
+          <div id="content">
+            <form onSubmit="App.castVote(); return false;">
+              <div class="form-group">
+                <label for="patientId">Patient Id</label>
+                <input type="number" class="form-control" id="patientId" placeholder="Enter Patient ID">
+              </div>
+              <div class="form-group">
+                <label for="docId">Doctor Id</label>
+                <input type="number" class="form-control" id="docId" placeholder="Enter Doctor Id">
+              </div>
+              <div class="form-group">
+                <label for="prescription">Prescription</label>
+                <input type="text" class="form-control" id="prescription" placeholder="Enter prescription">
+              </div>
+              <div class="form-group">
+                <label for="feedback">Feedback</label>
+                <input type="text" class="form-control" id="feedback" placeholder="Enter feedback">
+              </div>
+              <div class="form-group">
+                <label for="disease">Disease</label>
+                <input type="text" class="form-control" id="disease" placeholder="Enter disease">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <hr />
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <h3 class="text-center">Search heavily infected disease in any city</h3>
+          <hr/>
+          <div id="content">
+            <form onSubmit="App.castVote(); return false;">
+              <div class="form-group">
+                <label for="getcity">Enter city</label>
+                <input type="text" class="form-control" id="getcity" placeholder="Delhi...">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <hr />
+            </form>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Count</th>
+                </tr>
+              </thead>
+              <tbody id="getcityResult">
+                <tr>
+                  <td scope="col">1</td>
+                  <td scope="col">Corona</td>
+                  <td scope="col">13</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <h3 class="text-center">Search heavily infected city for any disease</h3>
+          <hr/>
+          <div id="content">
+            <form onSubmit="App.castVote(); return false;">
+              <div class="form-group">
+                <label for="getDisease">Enter Disease</label>
+                <input type="text" class="form-control" id="getDisease" placeholder="Example...">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <hr />
+            </form>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Count</th>
+                </tr>
+              </thead>
+              <tbody id="getdiseaseResult">
+                <tr>
+                  <td scope="col">1</td>
+                  <td scope="col">Corona</td>
+                  <td scope="col">13</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- <div id="petTemplate" style="display: none;">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="panel panel-default panel-pet">
+          <div class="panel-heading">
+            <h3 class="panel-title">Scrappy</h3>
+          </div>
+          <div class="panel-body">
+            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
+            <br/><br/>
+            <strong>Breed</strong>: <span class="pet-breed">Golden Retriever</span><br/>
+            <strong>Age</strong>: <span class="pet-age">3</span><br/>
+            <strong>Location</strong>: <span class="pet-location">Warren, MI</span><br/><br/>
+            <button class="btn btn-default btn-adopt" type="button" data-id="0">Adopt</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
